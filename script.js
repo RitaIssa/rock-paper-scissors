@@ -13,18 +13,33 @@ function getComputerChoice(){
 
 //Play a single round
 function playRound(playerSelection, computerSelection) {
-    if(playerSelection == "rock" && computerSelection == "rock"){
+    
+    console.log(playerSelection);
+    console.log(computerSelection);
+    if(playerSelection == "rock" && computerSelection == "rock" || playerSelection == "paper" && computerSelection == "paper" || playerSelection == "scissors" && computerSelection == "scissors"){
         console.log("Its a tie!");
     } else if (playerSelection == "rock" && computerSelection == "paper"){
         console.log("You Lose! Paper beats Rock");
     } else if (playerSelection == "rock" && computerSelection == "scissors"){
         console.log("You Win! Rock beats Scissors");
+    } else if (playerSelection == "paper" && computerSelection == "rock"){
+        console.log("You Win! Paper beats Rock");
+    } else if (playerSelection == "paper" && computerSelection == "scissors"){
+        console.log("You Lose! Scissors beats Paper");
+    } else if (playerSelection == "scissors" && computerSelection == "rock"){
+        console.log("You Lose! Rock beats Scissors");
+    } else if (playerSelection == "scissors" && computerSelection == "paper"){
+        console.log("You Win! Scissors beats Paper");
     }
 }
-  const player = "ROCK";
-  const playerSelection = player.toLowerCase();
-  const computerSelection = getComputerChoice();
-  console.log(computerSelection);
-  console.log(playerSelection);
-  console.log(playRound(playerSelection, computerSelection));
   
+//Play 5 rounds
+  function playGame(){
+    for(i = 1; i <= 5; i++){
+        let playerChoice = prompt("Let's play a game! Pick rock, paper, or scissors.");
+        const playerSelection = playerChoice.toLowerCase();
+        playRound(playerChoice, getComputerChoice());
+    }
+  }
+  
+  console.log(playGame());
